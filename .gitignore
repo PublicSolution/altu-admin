@@ -22,7 +22,6 @@
 hs_err_pid*
 .idea/
 core/target/
-project/build.properties
 project/target/*
 target/*
 *.iml
