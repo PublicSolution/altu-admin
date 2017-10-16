@@ -1,4 +1,4 @@
-import sbt.Keys.{resolvers, scalaVersion}
+import sbt.Keys.{resolvers}
 import sbt._
 
 object Dependencies {
@@ -19,8 +19,9 @@ object Dependencies {
 
   val spray_json = "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion
   val swagger_jaxrs =  "io.swagger" % "swagger-jaxrs" % "1.5.16"
+  val fommil = "com.github.fommil" %% "spray-json-shapeless" % "1.4.0"
 
   val backendDeps = Seq(akkaActor,akkaHttp, akkaStream
-    , akkaCluster, swagger, spray_json, spray_json)
+    , akkaCluster, swagger, spray_json, spray_json, fommil)
 
 }
