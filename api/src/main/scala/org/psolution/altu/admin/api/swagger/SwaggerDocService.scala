@@ -5,7 +5,7 @@ import com.github.swagger.akka.model.Info
 import io.swagger.models.ExternalDocs
 import io.swagger.models.auth.BasicAuthDefinition
 
-object SwaggerDocService extends SwaggerHttpService{
+object SwaggerDocService extends SwaggerHttpService {
   override def apiClasses = SwaggerApiRegistry.getRegistredInstances
   override val basePath = "/";
   override val apiDocsPath = "api-docs" //where you want the swagger-json endpoint exposed
