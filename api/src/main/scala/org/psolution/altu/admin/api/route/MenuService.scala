@@ -8,11 +8,7 @@ import akka.http.scaladsl.server.Route
 import io.swagger.annotations.{ApiOperation, ApiResponse, ApiResponses}
 
 import scala.collection.mutable.ListBuffer
-import org.psolution.altu.admin.api.model.{MenuItem}
-
-import spray.json._
-import fommil.sjs.FamilyFormats._
-
+import org.psolution.altu.admin.api.model.{Menu, MenuItem}
 
 class MenuService extends ApiService {
 
@@ -26,17 +22,18 @@ class MenuService extends ApiService {
       path("menu") {
         get {
           complete {
-            StatusCodes.OK -> getMockItems().toJson
+            StatusCodes.OK -> prettyJson(Menu(getMockItems()))
           }
         }
       }
     )
   }
 
-  private[this] def getMockItems(): ListBuffer[MenuItem] = {
+  private[api] def getMockItems(): List[MenuItem] = {
     var items = new ListBuffer[MenuItem];
-    items += MenuItem(Locale.US, "Dashboard")
-    items += MenuItem(Locale.US, "Settings")
+    items += MenuItem(Locale.US.toLanguageTag, "Dashboard")
+    items += MenuItem(Locale.US.toLanguageTag, "Settings")
+    items.toList
   }
 
 }

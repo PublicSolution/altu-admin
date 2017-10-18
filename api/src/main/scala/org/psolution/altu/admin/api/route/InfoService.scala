@@ -6,8 +6,6 @@ import akka.http.scaladsl.model.StatusCodes
 import io.swagger.annotations.{ApiOperation, ApiResponse, ApiResponses}
 import org.psolution.altu.admin.api.model.ApiModel
 
-import spray.json._
-import fommil.sjs.FamilyFormats._
 
 class InfoService extends ApiService{
 
@@ -22,7 +20,7 @@ class InfoService extends ApiService{
         get {
           complete {
             StatusCodes.OK ->
-              ApiModel("https://altu.publicsolution.com", "Altu Admin", "0.1.0", "altu-admin.xsd").toJson
+              prettyJson(ApiModel("https://altu.publicsolution.com", "Altu Admin", "0.1.0", "altu-admin.xsd"))
           }
         }
       })

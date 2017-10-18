@@ -24,8 +24,8 @@ object AltuServer extends HttpApp with RouteConcatenation{
   override protected def routes = combineRoutes
 
   private[this] def combineRoutes: Route = {
-    (new InfoService).getApiInfo
-    (new MenuService).getMenuByTemplate() ~ SwaggerDocService.routes ~ SwaggerUI.site;
+    (new InfoService).getApiInfo ~ (new MenuService).getMenuByTemplate() ~
+    SwaggerDocService.routes ~ SwaggerUI.site;
   }
 
 }
