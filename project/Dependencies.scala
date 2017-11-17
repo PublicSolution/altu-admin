@@ -17,15 +17,18 @@ object Dependencies {
 
   val swagger = "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.11.0"
 
-  val swagger_jaxrs =  "io.swagger" % "swagger-jaxrs" % "1.5.16"
+  val swagger_jaxrs = "io.swagger" % "swagger-jaxrs" % "1.5.16"
 
   val scalactic = "org.scalactic" %% "scalactic" % "3.0.4"
   val scalatest = "org.scalatest" %% "scalatest" % "3.0.4" % "test"
 
   val liftJson = "net.liftweb" %% "lift-json" % "3.1.1"
 
-  val backendDeps = Seq(akkaActor,akkaHttp, akkaStream
+  // Test dependencies
+  val akkaTestKit = "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test"
+
+  val backendDeps = Seq(akkaActor, akkaHttp, akkaStream
     , akkaCluster, swagger
-    , scalactic, scalatest, liftJson)
+    , scalactic, scalatest, liftJson, akkaTestKit)
 
 }
